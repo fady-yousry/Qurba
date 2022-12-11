@@ -1,3 +1,4 @@
+import { AuthGuard } from './core/auth/auth-guard.guard';
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,6 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'layout',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./core/layout/layout.module')
       .then(m => m.LayoutModule),
   },
