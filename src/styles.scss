@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --main-color: #56D9D9;
+    --border-color: #424242;
+    --main-color: #0194ff;
+    --text-color: #344054;
+    --description-color: #667085;
+    * {
+        font-family: "Inter";
+    }
+}
