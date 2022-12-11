@@ -1,3 +1,4 @@
+import { LayoutModule } from './core/layout/layout.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -16,7 +17,8 @@ import { ProductsRoutingModule } from './feature-modules/products/products-routi
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ProductsRoutingModule
+    ProductsRoutingModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

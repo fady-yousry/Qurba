@@ -18,6 +18,7 @@ import { LayoutComponent } from './layout.component';
   imports: [
     CommonModule,
     LayoutRoutingModule
-  ]
+  ],
+  exports: [HeaderComponent,SidebarComponent,FooterComponent],
 })
 export class LayoutModule { }

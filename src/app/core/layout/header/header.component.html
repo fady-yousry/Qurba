@@ -1,1 +1,25 @@
-<p>header works!</p>
+<header>
+    <div class="container">
+        <div class="left-links">
+            <span class="logo">
+                <img src="../../../../assets/Logomark.svg" alt="logo">
+                ClickTik
+            </span>
+            <span class="link" [routerLink]="['/layout']" >
+                Home
+            </span>
+        </div>
+    
+        <span class="right-links link" *ngIf="isLoggedIn;else notLoggedIn " >
+            <input type="search" placeholder="search">
+            <img src="../../../../assets/Vector.svg" alt="Vector">
+            Account
+        </span> 
+        <ng-template #notLoggedIn>
+            <span class="right-links link"  [routerLink]="['/auth']" routerLinkActive="router-link-active" >
+                login
+            </span> 
+        </ng-template>
+    </div>
+
+</header>
