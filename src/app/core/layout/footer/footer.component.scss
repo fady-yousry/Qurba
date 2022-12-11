@@ -1,0 +1,33 @@
+footer {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    left: 0px;
+    bottom: 0;
+    background: #1D2939;
+
+    .container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+
+        .logo {
+            font-weight: 500;
+            font-size: 16px;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        .copy-right {
+            font-weight: 400;
+            font-size: 16px;
+            color: #98A2B3;
+        }
+    }
+}
