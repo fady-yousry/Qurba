@@ -1,0 +1,31 @@
+nav {
+  ul {
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      list-style-type: none;
+    }
+
+    .page-item {
+      .page-link {
+        color: #1E1E1E;
+        padding: 8px;
+        border-radius: 5px;
+        border: 0.7px solid rgba(48, 55, 80, 0.08);
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+
+    .page-item.active {
+      .page-link {
+        background-color: var(--bg-color);
+        color: #1E1E1E;
+      }
+    }
+  }
+}

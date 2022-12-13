@@ -11,6 +11,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports:[PaginationComponent]
 })
 export class SharedModule { }

@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+
+    .row {
+        width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 5px;
+
+        .col-4 {
+            width: 33.33%;
+            padding: 5px;
+
+            .card {
+                border: 1px solid gray;
+                border-radius: 5px;
+                color: var(--text-color);
+
+                img {
+                    width: 100%;
+                }
+
+                .product-details {
+                    padding: 20px;
+
+                    .title {
+                        font-weight: 700;
+                        font-size: 20px;
+                        height: 40px;
+                    }
+
+                    .description,
+                    .details {
+                        font-weight: 400;
+                        font-size: 14px;
+                        color: #344054;
+                        padding-block: 5px;
+                    }
+
+                    .description {
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    .prices {
+                        width: 70%;
+                        display: flex;
+                        justify-content: space-between;
+                        padding-block: 15px;
+
+                        .currency {
+                            font-weight: normal;
+                        }
+                    }
+
+                    button {
+                        margin-top: 24px;
+                        background-color: var(--bg-color);
+                        width: 100%;
+                        padding: 10px 18px;
+                        border: 1px solid #56D9D9;
+                        box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+                        border-radius: 8px;
+                        font-weight: 500;
+                        font-size: 16px;
+                        color: var(--text-color);
+                        cursor: pointer;
+                    }
+                }
+
+
+            }
+        }
+    }
+}

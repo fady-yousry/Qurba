@@ -1,1 +1,29 @@
-<p>pagination works!</p>
+<nav aria-label="Page navigation example" *ngIf="pages.length > 1">
+  <ul class="pagination">
+
+    <li class="page-item" *ngIf="currPage != 1 && lastPage != 1">
+      <a class="page-link" (click)="handlePreviousPage()" aria-label="Previous">
+        <span aria-hidden="true">&lt;</span>
+      </a>
+    </li>
+    <!-- page -->
+    <li class="page-item" *ngIf="currPage - 1 >= 1">
+      <a class="page-link" (click)="goToPage(currPage - 1)">{{
+        currPage - 1
+        }}</a>
+    </li>
+    <li class="page-item active">
+      <a class="page-link">{{ currPage }}</a>
+    </li>
+    <li class="page-item" *ngIf="currPage + 1 <= lastPage">
+      <a class="page-link" (click)="goToPage(currPage + 1)">{{
+        currPage + 1
+        }}</a>
+    </li>
+    <li class="page-item" *ngIf="currPage != lastPage && lastPage != 1">
+      <a class="page-link" aria-label="Next" (click)="handleNextPage()">
+        <span aria-hidden="true">&gt;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
