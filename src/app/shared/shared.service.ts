@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,4 +7,15 @@ import { Injectable } from '@angular/core';
 export class SharedService {
 
   constructor() { }
+
+  searchTerm=new BehaviorSubject("");
+
+  setSearchTerm(term:string){
+    this.searchTerm.next(term);
+  }
+
+  getSearchTerm(){
+    return this.searchTerm;
+  }
+
 }

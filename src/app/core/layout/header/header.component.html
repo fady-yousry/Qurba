@@ -11,7 +11,7 @@
         </div>
     
         <span class="right-links link" *ngIf="isLoggedIn;else notLoggedIn " >
-            <input type="search" placeholder="search">
+            <input type="search" placeholder="search" (keyup)="setSearchTerm($event)">
             <img src="../../../../assets/Vector.svg" alt="Vector">
             Account
         </span> 

@@ -1,3 +1,4 @@
+import { SharedService } from './../../../shared/shared.service';
 import { LoginService } from './../../auth/login.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
-  constructor(private loginService: LoginService) {
+
+  constructor(private loginService: LoginService, private sharedService: SharedService) {
     this.loginService.currentUserData.subscribe(() => {
       if (this.loginService.currentUserData._value) {
         this.isLoggedIn = true;
@@ -17,6 +19,10 @@ export class HeaderComponent implements OnInit {
       }
     }
     )
+  }
+
+  setSearchTerm(event: any) {
+    this.sharedService.setSearchTerm(event.target.value);
   }
 
   ngOnInit(): void {

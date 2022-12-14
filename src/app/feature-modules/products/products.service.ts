@@ -7,7 +7,8 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
   getAllProducts(searchTerm:string='') {
-    return this.http.get<any>(`https://dummyjson.com/products${searchTerm}?/search?q=${searchTerm}:''`);
+    let search = searchTerm ? '/search?q='+searchTerm:'';
+    return this.http.get<any>(`https://dummyjson.com/products${search}`);
   }
 
 }
