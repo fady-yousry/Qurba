@@ -1,50 +1,38 @@
-<!-- <div class="container">
-    <div class="title">
+<div class="main-container">
+    <div class="title" style="margin-top: 50px; padding-left: 50px;">
         <h1>iPhone</h1>
         <h3>Home / Products / Smart Phones / <b>iPhone</b></h3>
     </div>
-    <div class="category-filters">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio placeat molestiae consequatur, beatae soluta
-        quaerat provident dolor? Consequuntur, nobis quam, laboriosam error accusamus tempore ipsum rem voluptate ea
-        consequatur voluptas aliquid maxime aliquam illo minima perferendis aperiam! Eius quae enim suscipit eaque nobis
-        nam voluptas, id reiciendis natus est amet beatae perferendis corporis officia, libero soluta facilis omnis.
-        Corporis hic quisquam omnis! Quisquam commodi cumque beatae natus quae hic sit tempora. Cumque beatae quibusdam
-        officiis nulla. Nam hic quam, quasi commodi deserunt dicta distinctio neque rerum est eius maxime voluptatem,
-        sunt, dolorum temporibus! Sit ducimus eaque, incidunt tenetur nobis laudantium?
-    </div>
-    <div class="products-container grid-container">
-        <div class="card grid-item">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium consectetur fugit, cupiditate, nemo quo
-            quos et dolor libero illum in asperiores velit nobis fugiat excepturi deleniti expedita architecto.
-            Praesentium repudiandae est saepe, consequuntur eligendi odio nisi doloremque officia recusandae, vitae illo
-            ab, omnis dolor placeat earum aspernatur perferendis minus sequi?
+    <div class="container">
+        <div class="filters">
+            <app-filters [filtersList]="categoriesList" (selectedFilter)="filterBy($event)"></app-filters>
         </div>
+        <div class="row">
+            <div class="col-4" *ngFor="let product of productsList">
+                <div class="card">
+                    <img src="../../../../assets/product.svg" alt="iphone image">
+                    <div class="product-details">
+                        <h2 class="title">{{product.title}}</h2>
+                        <p class="description" [title]="product.description">{{product.description}}</p>
+                        <span class="prices">
+                            <h5 [ngStyle]="{'text-decoration': product.discountPercentage ? 'line-through' : 'normal'}">
+                                {{product.price}} <span class="currency">USD</span></h5>
+                            <h5>{{calcPriceAfterDiscount(product.price,product.discountPercentage)}} <span
+                                    class="currency">USD</span></h5>
+                        </span>
+                        <h6 class="details">Brand: <b>{{product.brand}}</b></h6>
+                        <h6 class="details">Category: <b>{{product.category}}</b></h6>
+                        <h6 class="details">In stock: <b>{{product.stock}}</b></h6>
 
-    </div>
-</div> -->
-<div class="container">
-    <div class="row">
-        <div class="col-4" *ngFor="let product of productsList">
-            <div class="card">
-                <img src="../../../../assets/product.svg" alt="iphone image">
-                <div class="product-details">
-                    <h2 class="title">{{product.title}}</h2>
-                    <p class="description" [title]="product.description">{{product.description}}</p>
-                    <span class="prices">
-                        <h5 [ngStyle]="{'text-decoration': product.discountPercentage ? 'line-through' : 'normal'}">
-                            {{product.price}} <span class="currency">USD</span></h5>
-                        <h5>{{calcPriceAfterDiscount(product.price,product.discountPercentage)}} <span
-                                class="currency">USD</span></h5>
-                    </span>
-                    <h6 class="details">Brand: <b>{{product.brand}}</b></h6>
-                    <h6 class="details">Category: <b>{{product.category}}</b></h6>
-                    <h6 class="details">In stock: <b>{{product.stock}}</b></h6>
-    
-                    <button>Add to Cart</button>
+                        <button>Add to Cart</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <div style="padding-bottom: 70px;">
+        <app-pagination [lastPage]="lastPage" [currPage]="currentPage" (prev)="handlePrevious()" (next)="handleNext()"
+        (goTo)="handleGoTo($event)"></app-pagination>
+    </div>
+
 </div>
-<app-pagination [lastPage]="lastPage" [currPage]="currentPage" (prev)="handlePrevious()" (next)="handleNext()"
-    (goTo)="handleGoTo($event)"></app-pagination>

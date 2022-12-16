@@ -6,9 +6,13 @@ import { Injectable } from '@angular/core';
 export class ProductsService {
 
   constructor(private http: HttpClient) { }
-  getAllProducts(searchTerm:string='') {
-    let search = searchTerm ? '/search?q='+searchTerm:'';
+  getAllProducts(searchTerm: string = '') {
+    let search = searchTerm ? '/search?q=' + searchTerm : '';
     return this.http.get<any>(`https://dummyjson.com/products${search}`);
+  }
+
+  getAllCategories() {
+    return this.http.get<any>('https://dummyjson.com/products/categories');
   }
 
 }

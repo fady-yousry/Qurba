@@ -15,24 +15,43 @@ export class ProductsListComponent implements OnInit, OnDestroy {
   productsList: Product[] = [];
   search$ = new Subscription();
   searchTerm: string = '';
+  categoriesList: any[] = [];
+  originalList: Product[] = [];
   constructor(private productsService: ProductsService, private sharedService: SharedService) { }
 
   ngOnInit(): void {
-    this.getAllProducts();
     let search = this.sharedService.getSearchTerm().subscribe(res => {
       this.getAllProducts()
       this.searchTerm = res;
     })
     this.search$.add(search);
+    this.getAllCategories();
+
   }
 
   getAllProducts() {
     this.productsService.getAllProducts(this.searchTerm).subscribe(res => {
       this.productsList = res.products;
+      this.originalList = [...res.products];
     })
   }
   calcPriceAfterDiscount(price: number, discount: number) {
     return (price - ((price * discount) / 100)).toFixed(2);
+  }
+
+  getAllCategories() {
+    this.productsService.getAllCategories().subscribe(res => {
+      this.categoriesList = res;
+      this.categoriesList.unshift('All');
+    })
+  }
+
+  filterBy(category: string) {
+    if(category==='All'){
+      this.productsList=this.originalList;
+    }else{
+      this.productsList = this.originalList.filter(e => e.category == category)
+    }
   }
   handlePrevious() {
     this.handleGoTo(this.currentPage - 1);

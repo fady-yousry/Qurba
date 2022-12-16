@@ -1,0 +1,23 @@
+.filters-container {
+
+    padding: 10px;
+    background: #FFFFFF;
+    border: 0.5px solid #424242;
+    border-radius: 8px;
+    color: var(--description-color);
+
+    input[type=radio] {
+        accent-color: #409b9b;
+        width: 40px;
+    }
+
+    .title {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 22px;
+        color: #1E1E1E;
+        padding-bottom: 20px;
+    }
+}

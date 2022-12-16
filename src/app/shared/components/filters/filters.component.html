@@ -1,0 +1,10 @@
+<div class="filters-container">
+    <div class="title">
+        Products
+    </div>
+    <div *ngFor="let filter of filtersList" (click)="filterChecked($event)">
+        <input type="radio" [id]="filter" [name]="filter" [value]="filter">
+        <label for="filter">{{filter}}</label><br>
+    </div>
+
+</div>
