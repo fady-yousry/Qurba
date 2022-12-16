@@ -2,8 +2,8 @@
     <div class="title">
         Products
     </div>
-    <div *ngFor="let filter of filtersList" (click)="filterChecked($event)">
-        <input type="radio" [id]="filter" [name]="filter" [value]="filter">
+    <div *ngFor="let filter of filtersList" >
+        <input type="radio" [id]="filter" [name]="filter" [value]="filter" (click)="filterChecked($event)">
         <label for="filter">{{filter}}</label><br>
     </div>
 
